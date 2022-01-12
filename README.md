@@ -1,0 +1,1 @@
+# nextjs-wasm-bug
