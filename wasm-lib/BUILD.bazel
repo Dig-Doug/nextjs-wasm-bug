@@ -1,0 +1,16 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_shared_library")
+load("@rules_rust//wasm_bindgen:wasm_bindgen.bzl", "rust_wasm_bindgen")
+
+rust_shared_library(
+    name = "hello_world_lib_wasm",
+    srcs = ["main.rs"],
+    edition = "2018",
+    deps = [
+        "@rules_rust//wasm_bindgen/raze:wasm_bindgen",
+    ],
+)
+
+rust_wasm_bindgen(
+    name = "hello_world_bundler_wasm_bindgen",
+    wasm_file = ":hello_world_lib_wasm",
+)
